@@ -15,7 +15,7 @@ def index(request):
 
     # 3rd version
     from django.db.models import Count
-
+    # count возвращает кол-во объектов , связанных через поле todoitem модели category
     counts = Category.objects.annotate(total_tasks=Count(
         'todoitem')).order_by("-total_tasks")
     counts = {c.name: c.total_tasks for c in counts}

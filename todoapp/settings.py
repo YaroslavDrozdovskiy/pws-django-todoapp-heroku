@@ -5,7 +5,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'please-set-secret-key-through-env')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -64,7 +64,7 @@ LANGUAGE_CODE = 'ru-RU'
 
 
 django_heroku.settings(locals())
-
+TEST_RUNNER = 'django_heroku.HerokuDiscoverRunner'
 
 def get_cache():
     environment_ready = all(

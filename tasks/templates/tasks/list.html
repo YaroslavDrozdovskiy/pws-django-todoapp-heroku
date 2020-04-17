@@ -16,7 +16,7 @@
   {% for task in tasks %}
     {% if task.is_completed %}
     <li class="completed">
-      <input class='checkbox' data-uid={{ task.id }} type='checkbox' disabled='disabled' checked='checked'/>
+      <input class='checkbox' data-uid="{{ task.id }}" type='checkbox' disabled='disabled' checked='checked'/>
     {% endif %}
     {% if task.priority == task.PRIORITY_HIGH %}
       <span class="badge badge-pill badge-danger">&nbsp;</span>
@@ -25,7 +25,7 @@
     {% elif task.priority == task.PRIORITY_LOW %}
       <span class="badge badge-pill badge-success">&nbsp;</span>
     {% endif %}
-      <a href={% url "tasks:details" task.id %}>{{ task.description }}</a>
+      <a href="{% url 'tasks:details' task.id %}">{{ task.description }}</a>
       <hr/>
     </li>
   {% endfor %}
